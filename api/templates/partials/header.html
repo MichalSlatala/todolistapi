@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!--<link rel="stylesheet" href="{% static 'css/style.css' %}">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>TODO APP</title>
+  </head>
+  <body>
+    <div class="container">
+    <header>
+      <div class="page-header" style="text-align: center">
+      <h1>TO DO LIST</h1>
+      </div>
+      <a href="/api/add">
+        <button type="button" class="btn btn-default" id="add">
+        ADD A THING<br>
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+      </a>
+        <button class="btn btn-default" onClick="history.go(0)">
+          REFRESH<br>
+          <span class="glyphicon glyphicon-refresh"></span>
+        </button>
+    </header>

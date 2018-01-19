@@ -1,0 +1,13 @@
+{% include 'partials/header.html' %}
+<div class="panel panel-danger">
+  <div class="panel-heading">
+    done<br>
+  </div>
+  <div class="panel-body">
+    <div class="center">
+    You successfully deleted a " {{todo.title}} " entry!<br>
+    {% include 'partials/back_button.html' %}
+    </div>
+  </div>
+</div>
+{% include 'partials/footer.html' %}

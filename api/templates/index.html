@@ -1,0 +1,41 @@
+{% include 'partials/header.html' %}
+<div class="panel panel-primary">
+<div class="panel-heading">
+This is a list of your things to do...
+</div>
+
+<div class="panel-body" id="main">
+    <table class="table table-striped">
+      <thead>
+        <th>Title</th>
+        <th>About</th>
+        <th>Date</th>
+        <th>Finished?</th>
+        <th class="center">Details</th>
+        <th class="center">Delete?</th>
+      </thead>
+    <tbody>
+     {% for todo in todos %}
+
+      <tr {% if todo.finish == True %} style="background-color:#58d345"{% else %}  {% endif %}>
+         <td><a href="/api/details/{{todo.id}}">{{todo.title|slice:"10"}}</a></td>
+         <td>{{todo.text|slice:"10"}}</td>
+         <td>{{todo.created_at|date:"Y-m-d H:m:s"}}</td>
+        <td>{% if todo.finish == True %}Yes{% else %}No{% endif %}</td>
+        <td class="center">
+          <a href="/api/details/{{todo.id}}"><button type="button" class="btn btn-primary">
+              <span class="glyphicon glyphicon-edit"></span>
+          </button></a>
+        </td>
+          <td class="center">
+            <a href="/api/delete/{{todo.id}}"><button type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-trash"></span>
+            </button></a>
+          </td>
+      </tr>
+     {% endfor %}
+   </tbody>
+   </table>
+</div>
+</div>
+{% include 'partials/footer.html' %}

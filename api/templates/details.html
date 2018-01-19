@@ -1,0 +1,29 @@
+{% include 'partials/header.html' %}
+<div class="panel panel-primary" id="info">
+    <div class="panel-heading">
+      <h2>DETAILS OF <br> {{todo.title}}</h2>
+    </div>
+    <div class="panel-body">
+      <h3>CONTAINS:</h3>
+      <p>{{todo.text}}</p>
+      <br>
+      <h3>ON DATE:</h3>
+      <p>{{todo.created_at}}</p>
+      <br>
+      <h3>DONE?</h3>
+      <p>{% if todo.finish == True %}Yes{% else %}No{% endif %}</p>
+      <br>
+      <from action="{% url 'update' todo.id %}" method='post'>
+      <div class="line"></div>
+      <a href="/api/update/{{todo.id}}">
+        <button type="button" class="btn btn-primary">
+          DONE?<br>
+          <span class="glyphicon glyphicon-question-sign"></span>
+        </button>
+      </a>
+      
+    </from>
+      {% include 'partials/back_button.html' %}
+    </div>
+</div>
+{% include 'partials/footer.html' %}
